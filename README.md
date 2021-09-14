@@ -2,6 +2,11 @@
 
 The project is built using Java 11, SpringBoot, Lombok, Wiremock, Mockito and Gradle.
 
+## Running the Web Service from the project root directory
+I do not store the api key in my code - I've treated it like a secret.
+The script `runApplication.sh` will prompt for the api key and pass it to the application via the environmental variable `API_KEY`.
+
+
 ## Approach
 The path to get the reduced price dress is `/dresses/reduced`. 
 
@@ -31,8 +36,6 @@ I used `Mockito` (a lot) for testing interactions with dependencies.
 
 I used `Wiremock` to simulate the actual product server for Integration Tests where stub files define __canned__ responses.
 
-I do not store the api key in my code - I've treated it like a secret.
-The script `runApplication.sh` will prompt for the api key and pass it to the application via the environmental variable `API_KEY`.
 
 I copied information from
 [this web page](https://www.schemecolor.com/color-names-supported-on-all-web-browsers.php) to create the `colorToRgb.properties` file - see `RgbColorLookup`
