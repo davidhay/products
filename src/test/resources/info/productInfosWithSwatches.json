@@ -7,17 +7,17 @@
         {
           "color": "colorA1",
           "rgbColor": "rgbColorA1",
-          "skuId": "skuIdA1"
+          "skuid": "skuIdA1"
         },
         {
           "color": "colorA2",
           "rgbColor": "rgbColorA2",
-          "skuId": "skuIdA2"
+          "skuid": "skuIdA2"
         },
         {
           "color": "colorA3",
           "rgbColor": "rgbColorA3",
-          "skuId": "skuIdA3"
+          "skuid": "skuIdA3"
         }
       ],
       "nowPrice": "nowPrice1",
@@ -30,17 +30,17 @@
         {
           "color": "colorB1",
           "rgbColor": "rgbColorB1",
-          "skuId": "skuIdB1"
+          "skuid": "skuIdB1"
         },
         {
           "color": "colorB2",
           "rgbColor": "rgbColorB2",
-          "skuId": "skuIdB2"
+          "skuid": "skuIdB2"
         },
         {
           "color": "colorB3",
           "rgbColor": "rgbColorB3",
-          "skuId": "skuIdB3"
+          "skuid": "skuIdB3"
         }
       ],
       "nowPrice": "nowPrice2",
