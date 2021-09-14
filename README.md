@@ -1,4 +1,4 @@
-# Coding Assignment for David Hay
+# Reduced Price Dresses Web Service
 
 The project is built using Java 11, SpringBoot, Lombok, Wiremock, Mockito and Gradle.
 
