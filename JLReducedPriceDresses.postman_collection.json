@@ -1,0 +1,327 @@
+{
+	"info": {
+		"_postman_id": "668858df-9d13-466b-9612-37d0020aa3fc",
+		"name": "JLReducedPriceDresses",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getProductsLabelTypeIsDefault",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/dresses/reduced",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dresses",
+						"reduced"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "exampleDefaultLabelType",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/dresses/reduced",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dresses",
+								"reduced"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Sep 2021 15:40:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"products\": [\n        {\n            \"productId\": \"5343598\",\n            \"title\": \"Hobbs Vanessa Knit Dress, Merlot\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#FF0000\",\n                    \"skuId\": \"239741674\"\n                }\n            ],\n            \"nowPrice\": \"£59\",\n            \"priceLabel\": \"Was £129, now £59\"\n        },\n        {\n            \"productId\": \"5629576\",\n            \"title\": \"Mint Velvet Broderie Midi Dress, Black\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#000000\",\n                    \"skuId\": \"240099318\"\n                }\n            ],\n            \"nowPrice\": \"£49\",\n            \"priceLabel\": \"Was £119, now £49\"\n        },\n        {\n            \"productId\": \"5302138\",\n            \"title\": \"White Stuff Ignes Linen Blend Shirt Dress, Mid Brown\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#A52A2A\",\n                    \"skuId\": \"239759433\"\n                }\n            ],\n            \"nowPrice\": \"£32\",\n            \"priceLabel\": \"Was £65, now £32\"\n        },\n        {\n            \"productId\": \"5455673\",\n            \"title\": \"Finery Sylvie Double Breasted Shirt Dress, Navy\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#0000FF\",\n                    \"skuId\": \"239896857\"\n                }\n            ],\n            \"nowPrice\": \"£19.95\",\n            \"priceLabel\": \"Was £49, now £19.95\"\n        },\n        {\n            \"productId\": \"5668296\",\n            \"title\": \"Finery Kyra Tiered Midi Dress\",\n            \"colorSwatches\": [\n                {\n                    \"color\": \"Coral\",\n                    \"rgbColor\": \"#FFC0CB\",\n                    \"skuId\": \"239949903\"\n                }\n            ],\n            \"nowPrice\": \"£29.40\",\n            \"priceLabel\": \"Was £49, now £29.40\"\n        },\n        {\n            \"productId\": \"5535740\",\n            \"title\": \"White Stuff Avery Sleeveless Jersey Dress, Grey/Multi\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": null,\n                    \"skuId\": \"240002847\"\n                }\n            ],\n            \"nowPrice\": \"£32\",\n            \"priceLabel\": \"Was £49, now £32\"\n        },\n        {\n            \"productId\": \"5121148\",\n            \"title\": \"Jolie Moi Floral Lace Knee Length Dress\",\n            \"colorSwatches\": [\n                {\n                    \"color\": \"Royal Blue\",\n                    \"rgbColor\": \"#0000FF\",\n                    \"skuId\": \"238948376\"\n                },\n                {\n                    \"color\": \"Lilac\",\n                    \"rgbColor\": \"#FFC0CB\",\n                    \"skuId\": \"238948377\"\n                }\n            ],\n            \"nowPrice\": \"£59\",\n            \"priceLabel\": \"Was £75, now £59\"\n        },\n        {\n            \"productId\": \"5691784\",\n            \"title\": \"Finery Maison Floral Print Cotton Shirt Dress, Brown Ditsy\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#A52A2A\",\n                    \"skuId\": \"240096359\"\n                }\n            ],\n            \"nowPrice\": \"£39\",\n            \"priceLabel\": \"Was £49, now £39\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "getProductsLabelTypeIsShowWasNow",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/dresses/reduced?labelType=ShowWasNow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dresses",
+						"reduced"
+					],
+					"query": [
+						{
+							"key": "labelType",
+							"value": "ShowWasNow"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "exampleShowWasNowLabelType",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dresses/reduced?labelType=ShowWasNow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dresses",
+								"reduced"
+							],
+							"query": [
+								{
+									"key": "labelType",
+									"value": "ShowWasNow"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Sep 2021 15:40:53 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"products\": [\n        {\n            \"productId\": \"5343598\",\n            \"title\": \"Hobbs Vanessa Knit Dress, Merlot\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#FF0000\",\n                    \"skuId\": \"239741674\"\n                }\n            ],\n            \"nowPrice\": \"£59\",\n            \"priceLabel\": \"Was £129, now £59\"\n        },\n        {\n            \"productId\": \"5629576\",\n            \"title\": \"Mint Velvet Broderie Midi Dress, Black\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#000000\",\n                    \"skuId\": \"240099318\"\n                }\n            ],\n            \"nowPrice\": \"£49\",\n            \"priceLabel\": \"Was £119, now £49\"\n        },\n        {\n            \"productId\": \"5302138\",\n            \"title\": \"White Stuff Ignes Linen Blend Shirt Dress, Mid Brown\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#A52A2A\",\n                    \"skuId\": \"239759433\"\n                }\n            ],\n            \"nowPrice\": \"£32\",\n            \"priceLabel\": \"Was £65, now £32\"\n        },\n        {\n            \"productId\": \"5455673\",\n            \"title\": \"Finery Sylvie Double Breasted Shirt Dress, Navy\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#0000FF\",\n                    \"skuId\": \"239896857\"\n                }\n            ],\n            \"nowPrice\": \"£19.95\",\n            \"priceLabel\": \"Was £49, now £19.95\"\n        },\n        {\n            \"productId\": \"5668296\",\n            \"title\": \"Finery Kyra Tiered Midi Dress\",\n            \"colorSwatches\": [\n                {\n                    \"color\": \"Coral\",\n                    \"rgbColor\": \"#FFC0CB\",\n                    \"skuId\": \"239949903\"\n                }\n            ],\n            \"nowPrice\": \"£29.40\",\n            \"priceLabel\": \"Was £49, now £29.40\"\n        },\n        {\n            \"productId\": \"5535740\",\n            \"title\": \"White Stuff Avery Sleeveless Jersey Dress, Grey/Multi\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": null,\n                    \"skuId\": \"240002847\"\n                }\n            ],\n            \"nowPrice\": \"£32\",\n            \"priceLabel\": \"Was £49, now £32\"\n        },\n        {\n            \"productId\": \"5121148\",\n            \"title\": \"Jolie Moi Floral Lace Knee Length Dress\",\n            \"colorSwatches\": [\n                {\n                    \"color\": \"Royal Blue\",\n                    \"rgbColor\": \"#0000FF\",\n                    \"skuId\": \"238948376\"\n                },\n                {\n                    \"color\": \"Lilac\",\n                    \"rgbColor\": \"#FFC0CB\",\n                    \"skuId\": \"238948377\"\n                }\n            ],\n            \"nowPrice\": \"£59\",\n            \"priceLabel\": \"Was £75, now £59\"\n        },\n        {\n            \"productId\": \"5691784\",\n            \"title\": \"Finery Maison Floral Print Cotton Shirt Dress, Brown Ditsy\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#A52A2A\",\n                    \"skuId\": \"240096359\"\n                }\n            ],\n            \"nowPrice\": \"£39\",\n            \"priceLabel\": \"Was £49, now £39\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "getProductsLabelTypeIsShowWasThenNow",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/dresses/reduced?labelType=ShowWasThenNow",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dresses",
+						"reduced"
+					],
+					"query": [
+						{
+							"key": "labelType",
+							"value": "ShowWasThenNow"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "exampleShowWasThenNowLabelType",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/dresses/reduced?labelType=ShowWasThenNow",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dresses",
+								"reduced"
+							],
+							"query": [
+								{
+									"key": "labelType",
+									"value": "ShowWasThenNow"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Sep 2021 15:41:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"products\": [\n        {\n            \"productId\": \"5343598\",\n            \"title\": \"Hobbs Vanessa Knit Dress, Merlot\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#FF0000\",\n                    \"skuId\": \"239741674\"\n                }\n            ],\n            \"nowPrice\": \"£59\",\n            \"priceLabel\": \"Was £129, now £59\"\n        },\n        {\n            \"productId\": \"5629576\",\n            \"title\": \"Mint Velvet Broderie Midi Dress, Black\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#000000\",\n                    \"skuId\": \"240099318\"\n                }\n            ],\n            \"nowPrice\": \"£49\",\n            \"priceLabel\": \"Was £119, then £59, now £49\"\n        },\n        {\n            \"productId\": \"5302138\",\n            \"title\": \"White Stuff Ignes Linen Blend Shirt Dress, Mid Brown\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#A52A2A\",\n                    \"skuId\": \"239759433\"\n                }\n            ],\n            \"nowPrice\": \"£32\",\n            \"priceLabel\": \"Was £65, now £32\"\n        },\n        {\n            \"productId\": \"5455673\",\n            \"title\": \"Finery Sylvie Double Breasted Shirt Dress, Navy\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#0000FF\",\n                    \"skuId\": \"239896857\"\n                }\n            ],\n            \"nowPrice\": \"£19.95\",\n            \"priceLabel\": \"Was £49, then £29, now £19.95\"\n        },\n        {\n            \"productId\": \"5668296\",\n            \"title\": \"Finery Kyra Tiered Midi Dress\",\n            \"colorSwatches\": [\n                {\n                    \"color\": \"Coral\",\n                    \"rgbColor\": \"#FFC0CB\",\n                    \"skuId\": \"239949903\"\n                }\n            ],\n            \"nowPrice\": \"£29.40\",\n            \"priceLabel\": \"Was £49, then £35, now £29.40\"\n        },\n        {\n            \"productId\": \"5535740\",\n            \"title\": \"White Stuff Avery Sleeveless Jersey Dress, Grey/Multi\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": null,\n                    \"skuId\": \"240002847\"\n                }\n            ],\n            \"nowPrice\": \"£32\",\n            \"priceLabel\": \"Was £49, then £38, now £32\"\n        },\n        {\n            \"productId\": \"5121148\",\n            \"title\": \"Jolie Moi Floral Lace Knee Length Dress\",\n            \"colorSwatches\": [\n                {\n                    \"color\": \"Royal Blue\",\n                    \"rgbColor\": \"#0000FF\",\n                    \"skuId\": \"238948376\"\n                },\n                {\n                    \"color\": \"Lilac\",\n                    \"rgbColor\": \"#FFC0CB\",\n                    \"skuId\": \"238948377\"\n                }\n            ],\n            \"nowPrice\": \"£59\",\n            \"priceLabel\": \"Was £75, now £59\"\n        },\n        {\n            \"productId\": \"5691784\",\n            \"title\": \"Finery Maison Floral Print Cotton Shirt Dress, Brown Ditsy\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#A52A2A\",\n                    \"skuId\": \"240096359\"\n                }\n            ],\n            \"nowPrice\": \"£39\",\n            \"priceLabel\": \"Was £49, now £39\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "getProductsLabelTypeIsShowPercentageDiscount",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/dresses/reduced?labelType=ShowPercDscount",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dresses",
+						"reduced"
+					],
+					"query": [
+						{
+							"key": "labelType",
+							"value": "ShowPercDscount"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "exampleShowPercentageDiscountLabelType",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/dresses/reduced?labelType=ShowPercDscount",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dresses",
+								"reduced"
+							],
+							"query": [
+								{
+									"key": "labelType",
+									"value": "ShowPercDscount"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Sep 2021 15:41:25 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"products\": [\n        {\n            \"productId\": \"5343598\",\n            \"title\": \"Hobbs Vanessa Knit Dress, Merlot\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#FF0000\",\n                    \"skuId\": \"239741674\"\n                }\n            ],\n            \"nowPrice\": \"£59\",\n            \"priceLabel\": \"54% off - now £59\"\n        },\n        {\n            \"productId\": \"5629576\",\n            \"title\": \"Mint Velvet Broderie Midi Dress, Black\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#000000\",\n                    \"skuId\": \"240099318\"\n                }\n            ],\n            \"nowPrice\": \"£49\",\n            \"priceLabel\": \"59% off - now £49\"\n        },\n        {\n            \"productId\": \"5302138\",\n            \"title\": \"White Stuff Ignes Linen Blend Shirt Dress, Mid Brown\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#A52A2A\",\n                    \"skuId\": \"239759433\"\n                }\n            ],\n            \"nowPrice\": \"£32\",\n            \"priceLabel\": \"51% off - now £32\"\n        },\n        {\n            \"productId\": \"5455673\",\n            \"title\": \"Finery Sylvie Double Breasted Shirt Dress, Navy\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#0000FF\",\n                    \"skuId\": \"239896857\"\n                }\n            ],\n            \"nowPrice\": \"£19.95\",\n            \"priceLabel\": \"59% off - now £19.95\"\n        },\n        {\n            \"productId\": \"5668296\",\n            \"title\": \"Finery Kyra Tiered Midi Dress\",\n            \"colorSwatches\": [\n                {\n                    \"color\": \"Coral\",\n                    \"rgbColor\": \"#FFC0CB\",\n                    \"skuId\": \"239949903\"\n                }\n            ],\n            \"nowPrice\": \"£29.40\",\n            \"priceLabel\": \"40% off - now £29.40\"\n        },\n        {\n            \"productId\": \"5535740\",\n            \"title\": \"White Stuff Avery Sleeveless Jersey Dress, Grey/Multi\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": null,\n                    \"skuId\": \"240002847\"\n                }\n            ],\n            \"nowPrice\": \"£32\",\n            \"priceLabel\": \"35% off - now £32\"\n        },\n        {\n            \"productId\": \"5121148\",\n            \"title\": \"Jolie Moi Floral Lace Knee Length Dress\",\n            \"colorSwatches\": [\n                {\n                    \"color\": \"Royal Blue\",\n                    \"rgbColor\": \"#0000FF\",\n                    \"skuId\": \"238948376\"\n                },\n                {\n                    \"color\": \"Lilac\",\n                    \"rgbColor\": \"#FFC0CB\",\n                    \"skuId\": \"238948377\"\n                }\n            ],\n            \"nowPrice\": \"£59\",\n            \"priceLabel\": \"21% off - now £59\"\n        },\n        {\n            \"productId\": \"5691784\",\n            \"title\": \"Finery Maison Floral Print Cotton Shirt Dress, Brown Ditsy\",\n            \"colorSwatches\": [\n                {\n                    \"color\": null,\n                    \"rgbColor\": \"#A52A2A\",\n                    \"skuId\": \"240096359\"\n                }\n            ],\n            \"nowPrice\": \"£39\",\n            \"priceLabel\": \"20% off - now £39\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

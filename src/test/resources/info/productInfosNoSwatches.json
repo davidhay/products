@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "productId": "productId1",
+      "title": "title1",
+      "colorSwatches": null,
+      "nowPrice": "nowPrice1",
+      "priceLabel": "priceLabel1"
+    },
+    {
+      "productId": "productId2",
+      "title": "title2",
+      "colorSwatches": null,
+      "nowPrice": "nowPrice2",
+      "priceLabel": "priceLabel2"
+    }
+  ]
+}
+

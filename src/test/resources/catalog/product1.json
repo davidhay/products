@@ -1,0 +1,73 @@
+{
+  "productId": "5520412",
+  "title": "John Lewis & Partners School Belted Gingham Checked Summer Dress",
+  "price": {
+    "was": "",
+    "then1": "",
+    "then2": "",
+    "now": {
+      "from": "9.00",
+      "to": "14.00"
+    },
+    "uom": "",
+    "currency": "GBP"
+  },
+  "colorSwatches": [
+    {
+      "color": "Yellow",
+      "basicColor": "Yellow",
+      "colorSwatchUrl": "//johnlewis.scene7.com/is/image/JohnLewis/005141565alt3?cropN=0.4147368421052632,0.27789473684210525,0.09263157894736843,0.09263157894736843&",
+      "imageUrl": "//johnlewis.scene7.com/is/image/JohnLewis/005141565?",
+      "isAvailable": true,
+      "skuId": "239018760"
+    },
+    {
+      "color": "Green",
+      "basicColor": "Green",
+      "colorSwatchUrl": "//johnlewis.scene7.com/is/image/JohnLewis/005141554alt3?cropN=0.40842105263157896,0.2336842105263158,0.12210526315789473,0.12210526315789473&",
+      "imageUrl": "//johnlewis.scene7.com/is/image/JohnLewis/005141554?",
+      "isAvailable": true,
+      "skuId": "239018691"
+    },
+    {
+      "color": "Lilac",
+      "basicColor": "Purple",
+      "colorSwatchUrl": "//johnlewis.scene7.com/is/image/JohnLewis/005141558alt3?cropN=0.35789473684210527,0.19789473684210526,0.12,0.12&",
+      "imageUrl": "//johnlewis.scene7.com/is/image/JohnLewis/005141558?",
+      "isAvailable": true,
+      "skuId": "239018687"
+    },
+    {
+      "color": "Navy",
+      "basicColor": "Blue",
+      "colorSwatchUrl": "//johnlewis.scene7.com/is/image/JohnLewis/005141561alt3?cropN=0.3726315789473684,0.21894736842105264,0.11368421052631579,0.11368421052631579&",
+      "imageUrl": "//johnlewis.scene7.com/is/image/JohnLewis/005141561?",
+      "isAvailable": true,
+      "skuId": "239018713"
+    },
+    {
+      "color": "Pink",
+      "basicColor": "Pink",
+      "colorSwatchUrl": "//johnlewis.scene7.com/is/image/JohnLewis/005141562alt3?cropN=0.37473684210526315,0.2231578947368421,0.11789473684210526,0.11789473684210526&",
+      "imageUrl": "//johnlewis.scene7.com/is/image/JohnLewis/005141562?",
+      "isAvailable": true,
+      "skuId": "239018723"
+    },
+    {
+      "color": "Red",
+      "basicColor": "Red",
+      "colorSwatchUrl": "//johnlewis.scene7.com/is/image/JohnLewis/005141567alt3?cropN=0.3684210526315789,0.22526315789473683,0.10947368421052632,0.10947368421052632&",
+      "imageUrl": "//johnlewis.scene7.com/is/image/JohnLewis/005141567?",
+      "isAvailable": true,
+      "skuId": "239018816"
+    },
+    {
+      "color": "Light Blue",
+      "basicColor": "Blue",
+      "colorSwatchUrl": "//johnlewis.scene7.com/is/image/JohnLewis/005141560alt3?cropN=0.37684210526315787,0.23157894736842105,0.09473684210526316,0.09473684210526316&",
+      "imageUrl": "//johnlewis.scene7.com/is/image/JohnLewis/005141560?",
+      "isAvailable": false,
+      "skuId": "239018712"
+    }
+  ]
+}
