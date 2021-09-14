@@ -2,33 +2,35 @@ package com.davidhay.jlassignment.service;
 
 import com.davidhay.jlassignment.domain.outbound.ProductInfo;
 import com.davidhay.jlassignment.mapper.ProductToProductInfoMapper;
-import java.util.List;
-import java.util.stream.Collectors;
+import com.davidhay.jlassignment.repository.ProductCatalogRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductInfoService {
 
-  private final ValidProductCatalogService productCatalogService;
+    private final ProductCatalogRepository repo;
+    private final ProductToProductInfoMapper mapper;
 
-  private final ProductToProductInfoMapper productToProductInfoMapper;
+    public ProductInfoService(ProductCatalogRepository repo,
+                               ProductToProductInfoMapper mapper
+    ) {
+        this.repo = repo;
+        this.mapper = mapper;
+    }
 
-  public ProductInfoService(
-      ValidProductCatalogService productCatalogService,
-      ProductToProductInfoMapper productToProductInfoMapper) {
-    this.productCatalogService = productCatalogService;
-    this.productToProductInfoMapper = productToProductInfoMapper;
-  }
-
-  /**
-   * We could cache this data a short period of time to reduce load on back end.
-   */
-  List<ProductInfo> getProductInfo() {
-    return
-        productCatalogService.getValidProducts()
-            .stream()
-            .map(productToProductInfoMapper::mapToProductInfo)
-            .collect(Collectors.toList());
-  }
-
+    public List<ProductInfo> getProductInfo(String productName, Predicate<ProductInfo> filter, Comparator<ProductInfo> comparator, Consumer<ProductInfo> labeller) {
+        return repo.getProductsFromCatalog(productName)
+                .stream()
+                .map(mapper::mapToProductInfo)
+                .filter(filter)
+                .sorted(comparator)
+                .peek(labeller)
+                .collect(Collectors.toList());
+    }
 }

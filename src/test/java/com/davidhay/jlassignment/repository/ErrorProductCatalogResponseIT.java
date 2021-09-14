@@ -19,7 +19,7 @@ public class ErrorProductCatalogResponseIT extends BaseProductCatalogRespository
 
   @Test
   public void testErrorResponse() {
-    List<Product> products = repo.getProductsFromCatalog();
+    List<Product> products = repo.getProductsFromCatalog("dresses");
     assertThat(products).isEmpty();
   }
 

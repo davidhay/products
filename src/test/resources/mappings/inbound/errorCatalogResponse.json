@@ -1,6 +1,6 @@
 {
   "request": {
-    "url": "https://api.johnlewis.com/search/api/rest/v2/catalog/products/search/keyword",
+    "url": "https://api.johnlewis.com/search/api/rest/v2/catalog/products/search/keyword?q=dresses&key=XXX",
     "method": "GET"
   },
   "response": {

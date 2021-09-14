@@ -2,9 +2,10 @@ package com.davidhay.jlassignment.controller;
 
 import com.davidhay.jlassignment.domain.outbound.ProductInfo;
 import com.davidhay.jlassignment.domain.outbound.ProductsInfo;
-import com.davidhay.jlassignment.service.ReducedProductsService;
 import java.util.List;
 import java.util.Optional;
+
+import com.davidhay.jlassignment.service.ReducedPriceDressesService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,9 +17,9 @@ public class DressesController {
 
   public static final String LABEL_TYPE = "labelType";
 
-  private final ReducedProductsService service;
+  private final ReducedPriceDressesService service;
 
-  public DressesController(ReducedProductsService service) {
+  public DressesController(ReducedPriceDressesService service) {
     this.service = service;
   }
 

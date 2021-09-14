@@ -29,7 +29,7 @@ public class ExampleProductCatalogResponseIT extends BaseProductCatalogResposito
   public void testExampleResponse() {
 
     //get the products from the example file
-    List<Product> products = repo.getProductsFromCatalog();
+    List<Product> products = repo.getProductsFromCatalog("dresses");
 
     //check the number of products
     assertThat(products.size()).isEqualTo(24);

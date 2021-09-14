@@ -19,7 +19,7 @@ public class SingleProductCatalogResponseIT extends BaseProductCatalogRespositor
 
   @Test
   public void testSingleResponse() {
-    List<Product> products = repo.getProductsFromCatalog();
+    List<Product> products = repo.getProductsFromCatalog("dresses");
     assertThat(products).size().isEqualTo(1);
   }
 

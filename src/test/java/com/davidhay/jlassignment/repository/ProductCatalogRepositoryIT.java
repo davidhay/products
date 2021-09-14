@@ -38,7 +38,7 @@ public class ProductCatalogRepositoryIT {
     String apiKey = environment.getProperty("API_KEY");
     Assert.isTrue(apiKey != null, "The API_KEY must be set via an environmental variable, it's a secret!");
 
-    List<Product> products = repo.getProductsFromCatalog();
+    List<Product> products = repo.getProductsFromCatalog("dresses");
     assertTrue(products.size() > 0);
 
   }

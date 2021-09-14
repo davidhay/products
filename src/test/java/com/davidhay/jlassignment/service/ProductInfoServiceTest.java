@@ -1,17 +1,9 @@
 package com.davidhay.jlassignment.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.when;
-
 import com.davidhay.jlassignment.domain.inbound.Product;
 import com.davidhay.jlassignment.domain.outbound.ProductInfo;
 import com.davidhay.jlassignment.mapper.ProductToProductInfoMapper;
-import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
+import com.davidhay.jlassignment.repository.ProductCatalogRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -20,51 +12,74 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Comparator;
+import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
+
 @ExtendWith(MockitoExtension.class)
 public class ProductInfoServiceTest {
 
-  @Mock
-  ValidProductCatalogService mProductCatalogService;
+    @Mock
+    ProductToProductInfoMapper mMapper;
 
-  @Mock
-  ProductToProductInfoMapper mMapper;
+    @Mock
+    ProductCatalogRepository mRepo;
 
+    @InjectMocks
+    ProductInfoService sut;
 
-  @InjectMocks
-  ProductInfoService sut;
+    @Mock
+    Product mProduct1, mProduct2, mProduct3;
 
-  List<Product> validProducts;
+    @Mock
+    ProductInfo mProductInfo1, mProductInfo2, mProductInfo3;
 
-  @Mock
-  Product mProduct1, mProduct2, mProduct3;
+    @Captor
+    ArgumentCaptor<String> argProductName;
 
-  @Mock
-  ProductInfo mProductInfo1, mProductInfo2, mProductInfo3;
+    @Captor
+    ArgumentCaptor<Product> argProduct;
 
-  @Captor
-  ArgumentCaptor<Product> argProduct;
+    @Test
+    void testGetProductInfo() {
 
-  @BeforeEach
-  void setup() {
-    validProducts = List.of(mProduct1, mProduct2, mProduct3);
-  }
+        when(mRepo.getProductsFromCatalog(argProductName.capture())).thenReturn(List.of(mProduct1, mProduct2, mProduct3));
 
-  @Test
-  void testGetProductInfo() {
-    when(mMapper.mapToProductInfo(argProduct.capture())).thenReturn(mProductInfo1, mProductInfo2,
-        mProductInfo3);
-    when(mProductCatalogService.getValidProducts()).thenReturn(validProducts);
+        when(mMapper.mapToProductInfo(argProduct.capture())).thenReturn(mProductInfo1, mProductInfo2, mProductInfo3);
 
-    List<ProductInfo> result = sut.getProductInfo();
-    assertEquals(result, List.of(mProductInfo1, mProductInfo2, mProductInfo3));
+        Predicate<ProductInfo> filter = p -> p != mProductInfo2;
 
-    assertEquals(argProduct.getAllValues(), List.of(mProduct1, mProduct2, mProduct3));
+        List<ProductInfo> order = List.of(mProductInfo3, mProductInfo2, mProductInfo1);
+        Comparator<ProductInfo> comparator = Comparator.comparingInt(order::indexOf);
 
-    verify(mMapper, times(3)).mapToProductInfo(any(Product.class));
+        String productName = UUID.randomUUID().toString();
+        Consumer<ProductInfo> labeller = (pi) -> {
+                if(pi == mProductInfo1){
+                     pi.setPriceLabel("LABEL-ONE");
+                }else{
+                     pi.setPriceLabel("LABEL-TWO");
+                }
+        };
+        List<ProductInfo> result = sut.getProductInfo(productName, filter, comparator, labeller);
 
-    verify(mProductCatalogService).getValidProducts();
+        assertEquals(result, List.of(mProductInfo3, mProductInfo1));
 
-    verifyNoMoreInteractions(mMapper, mProductCatalogService);
-  }
+        verify(mProductInfo1).setPriceLabel("LABEL-ONE");
+        verify(mProductInfo3).setPriceLabel("LABEL-TWO");
+
+        assertEquals(argProductName.getValue(), productName);
+
+        assertEquals(argProduct.getAllValues(), List.of(mProduct1, mProduct2, mProduct3));
+        verify(mMapper,times(3)).mapToProductInfo(any(Product.class));
+
+        verifyNoMoreInteractions(mMapper, mRepo);
+    }
+
 
 }

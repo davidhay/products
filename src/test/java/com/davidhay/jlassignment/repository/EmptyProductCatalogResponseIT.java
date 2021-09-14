@@ -19,7 +19,7 @@ public class EmptyProductCatalogResponseIT extends BaseProductCatalogRespository
 
   @Test
   public void testEmptyResponse() {
-    List<Product> products = repo.getProductsFromCatalog();
+    List<Product> products = repo.getProductsFromCatalog("dresses");
     assertThat(products).isEmpty();
   }
 

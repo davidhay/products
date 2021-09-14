@@ -8,9 +8,10 @@ import static org.mockito.Mockito.when;
 
 import com.davidhay.jlassignment.domain.outbound.ProductInfo;
 import com.davidhay.jlassignment.domain.outbound.ProductsInfo;
-import com.davidhay.jlassignment.service.ReducedProductsService;
 import java.util.List;
 import java.util.Optional;
+
+import com.davidhay.jlassignment.service.ReducedPriceDressesService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -23,7 +24,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 public class DressesControllerTest {
 
   @Mock
-  ReducedProductsService mService;
+  ReducedPriceDressesService mService;
 
   @InjectMocks
   DressesController sut;
@@ -40,7 +41,7 @@ public class DressesControllerTest {
     ProductsInfo result = sut.getReducedPriceDresses(
         optLabelType);
 
-    LabelType expected = optLabelType.isEmpty() ? LabelType.ShowWasNow : optLabelType.get();
+    LabelType expected = (optLabelType == null || optLabelType.isEmpty()) ? LabelType.ShowWasNow : optLabelType.get();
 
     assertThat(argLabelType.getValue()).isEqualTo(expected);
 
@@ -49,6 +50,11 @@ public class DressesControllerTest {
     verify(mService).getReducedPriceDresses(expected);
 
     verifyNoMoreInteractions(mService);
+  }
+
+  @Test
+  public void testNullLabelType() {
+    check(null);
   }
 
   @Test

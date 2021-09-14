@@ -6,7 +6,6 @@ The project is built using Java 11, SpringBoot, Lombok, Wiremock, Mockito and Gr
 I do not store the api key in my code - I've treated it like a secret.
 The script `runApplication.sh` will prompt for the api key and pass it to the application via the environmental variable `API_KEY`.
 
-
 ## Approach
 The path to get the reduced price dress is `/dresses/reduced`. 
 
@@ -36,14 +35,8 @@ I used `Mockito` (a lot) for testing interactions with dependencies.
 
 I used `Wiremock` to simulate the actual product server for Integration Tests where stub files define __canned__ responses.
 
-
 I copied information from
 [this web page](https://www.schemecolor.com/color-names-supported-on-all-web-browsers.php) to create the `colorToRgb.properties` file - see `RgbColorLookup`
-
-I created the final response in 2 stages. 
-1. get the valid products and map them to ProductInfo instances. See `ProductInfoService`.
-The data from this stage could be cached to improved performance/reduce load on JL product catalog.
-2. filter/sort the ProductInfo instances and then add the `priceLabel`. See `ReducedProductsService`.
 
 ## Assumptions
 
@@ -85,6 +78,7 @@ These could be added via Spring Boot Actuator
 This application allows you get reduced price dresses. Further improvements could be:
 1. Allow other products other than dresses to be supported. 
 2. Allow **all** dresses to be returned - not just those that are reduced in price.
-
+I've made the `ProductInfoService` pretty generic and the specific Filters/Comparators and Catalog Products for
+'reduced price dresses' come from `ReducedPriceDressService`.
 ### OpenAPI/Swagger
 It would be nice to create/generate an OpenAPI spec to document this application's API and allow others to develop against it.

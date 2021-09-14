@@ -10,6 +10,8 @@ import com.davidhay.jlassignment.domain.outbound.ColorSwatchInfo;
 import com.davidhay.jlassignment.lookup.RgbColorLookup;
 import java.util.Optional;
 import java.util.UUID;
+
+import org.checkerframework.checker.nullness.Opt;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -78,4 +80,22 @@ public class ColorSwatchInfoMapperTest {
 
     verifyNoMoreInteractions(mLookup);
   }
+
+  @Test
+  void testEmptyColorMapping() {
+    ColorSwatch swatch = new ColorSwatch();
+
+    when(mLookup.getRgbColor(null)).thenReturn(Optional.empty());
+
+    ColorSwatchInfo info = sut.toSwatchInfo(swatch);
+
+    assertThat(info.getColor()).isNull();
+    assertThat(info.getSkuId()).isNull();
+    assertThat(info.getRgbColor()).isNull();
+
+    verify(mLookup).getRgbColor(null);
+
+    verifyNoMoreInteractions(mLookup);
+  }
+
 }

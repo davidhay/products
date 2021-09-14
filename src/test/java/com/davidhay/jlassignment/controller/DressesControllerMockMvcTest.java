@@ -9,7 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.davidhay.jlassignment.domain.outbound.ProductInfo;
 import com.davidhay.jlassignment.domain.outbound.ProductsInfo;
 import com.davidhay.jlassignment.domain.outbound.ProductsInfoSerializationTest;
-import com.davidhay.jlassignment.service.ReducedProductsService;
+import com.davidhay.jlassignment.service.ReducedPriceDressesService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Collections;
 import java.util.List;
@@ -33,7 +33,7 @@ public class DressesControllerMockMvcTest {
   MockMvc mockMvc;
 
   @MockBean
-  ReducedProductsService mService;
+  ReducedPriceDressesService mService;
 
   @Captor
   ArgumentCaptor<LabelType> argLabelType;
