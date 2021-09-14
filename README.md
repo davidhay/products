@@ -1,4 +1,4 @@
-# John Lewis Coding Assignment for David Hay
+# Coding Assignment for David Hay
 
 The project is built using Java 11, SpringBoot, Lombok, Wiremock, Mockito and Gradle.
 
