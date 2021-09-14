@@ -29,6 +29,10 @@ public class ConfigProperties {
 
   private String catalogURL;
 
+  private String baseCatalogURL;
+
+  private String apiKey;
+
   private Environment environment;
 
   @Autowired
@@ -75,6 +79,16 @@ public class ConfigProperties {
       assert (params.isEmpty());
     }
     return uri.toURL();
+  }
+
+  @Bean
+  URI baseCatalogURI() {
+    return UriComponentsBuilder.fromUriString(this.baseCatalogURL).build().toUri();
+  }
+
+  @Bean
+  String apiKey() {
+    return apiKey;
   }
 
 }
