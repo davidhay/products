@@ -63,11 +63,11 @@ public class PriceToPriceInfoMapperTest {
 
     @Test
     void testWasAndToUseThen1() {
-      Price price = PriceBuilder.builder().was("20").then1("15").to("10").build();
+      Price price = PriceBuilder.builder().was("21").then1("15").to("10").build();
       assertTrue(price.hasValidNowPrice());
       PriceInfo info = mapper.getPriceInfo(price);
 
-      assertThat(info.getWas()).isEqualByComparingTo(JsonUtils.getAmount("20"));
+      assertThat(info.getWas()).isEqualByComparingTo(JsonUtils.getAmount("21"));
       assertThat(info.getThen().get()).isEqualByComparingTo(JsonUtils.getAmount("15"));
       assertThat(info.getNow()).isEqualByComparingTo(JsonUtils.getAmount("10"));
     }

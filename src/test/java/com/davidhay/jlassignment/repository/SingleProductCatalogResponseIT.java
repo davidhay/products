@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.davidhay.jlassignment.domain.inbound.Product;
 import java.util.List;
+
+import com.davidhay.jlassignment.domain.inbound.ProductType;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,7 +21,7 @@ public class SingleProductCatalogResponseIT extends BaseProductCatalogRespositor
 
   @Test
   public void testSingleResponse() {
-    List<Product> products = repo.getProductsFromCatalog("dresses");
+    List<Product> products = repo.getProductsFromCatalog(ProductType.DRESSES);
     assertThat(products).size().isEqualTo(1);
   }
 

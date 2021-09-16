@@ -1,5 +1,6 @@
 package com.davidhay.jlassignment.service;
 
+import com.davidhay.jlassignment.domain.inbound.ProductType;
 import com.davidhay.jlassignment.domain.outbound.ProductInfo;
 import com.davidhay.jlassignment.mapper.ProductToProductInfoMapper;
 import com.davidhay.jlassignment.repository.ProductCatalogRepository;
@@ -24,8 +25,8 @@ public class ProductInfoService {
         this.mapper = mapper;
     }
 
-    public List<ProductInfo> getProductInfo(String productName, Predicate<ProductInfo> filter, Comparator<ProductInfo> comparator, Consumer<ProductInfo> labeller) {
-        return repo.getProductsFromCatalog(productName)
+    public List<ProductInfo> getProductInfo(ProductType productType, Predicate<ProductInfo> filter, Comparator<ProductInfo> comparator, Consumer<ProductInfo> labeller) {
+        return repo.getProductsFromCatalog(productType)
                 .stream()
                 .map(mapper::mapToProductInfo)
                 .filter(filter)

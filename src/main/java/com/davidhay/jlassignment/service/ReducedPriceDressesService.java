@@ -1,6 +1,7 @@
 package com.davidhay.jlassignment.service;
 
 import com.davidhay.jlassignment.controller.LabelType;
+import com.davidhay.jlassignment.domain.inbound.ProductType;
 import com.davidhay.jlassignment.domain.outbound.ProductInfo;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,6 @@ import java.util.function.Predicate;
 
 @Service
 public class ReducedPriceDressesService {
-
-    public static final String PRODUCT_DRESSES = "dresses";
 
     private final ProductInfoService productInfoService;
     private final Predicate<ProductInfo> hasPriceReductionPredicate;
@@ -32,7 +31,7 @@ public class ReducedPriceDressesService {
 
     public List<ProductInfo> getReducedPriceDresses(LabelType labelType) {
         Consumer<ProductInfo> productInfoLabeler = labelTypeToProductInfoLabeler.apply(labelType);
-        return productInfoService.getProductInfo(PRODUCT_DRESSES, hasPriceReductionPredicate, sortProductInfoByPriceReductionInPenceDescending, productInfoLabeler);
+        return productInfoService.getProductInfo(ProductType.DRESSES, hasPriceReductionPredicate, sortProductInfoByPriceReductionInPenceDescending, productInfoLabeler);
     }
 
 }

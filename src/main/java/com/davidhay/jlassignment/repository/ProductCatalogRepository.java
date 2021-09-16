@@ -2,6 +2,7 @@ package com.davidhay.jlassignment.repository;
 
 import com.davidhay.jlassignment.domain.inbound.Product;
 import com.davidhay.jlassignment.domain.inbound.ProductCatalogResponse;
+import com.davidhay.jlassignment.domain.inbound.ProductType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -36,7 +37,7 @@ public class ProductCatalogRepository {
         this.apiKey = apiKey;
     }
 
-    public List<Product> getProductsFromCatalog(String product) {
+    public List<Product> getProductsFromCatalog(ProductType product) {
         try {
             HttpHeaders headers = new HttpHeaders();
             // set `accept` header
@@ -47,14 +48,12 @@ public class ProductCatalogRepository {
             // build the request
             HttpEntity<Void> requestHeaders = new HttpEntity<>(headers);
             HttpHeaders queryParams = new HttpHeaders();
-            queryParams.put(PARAM_NAME_PRODUCT, List.of(product));
+            queryParams.put(PARAM_NAME_PRODUCT, List.of(product.getType()));
             queryParams.put(PARAM_NAME_KEY, List.of(apiKey));
 
             UriComponentsBuilder builder = UriComponentsBuilder.fromUri(baseCatalogURI)
                     .queryParams(queryParams);
             UriComponents uriComponents = builder.build().encode();
-
-            URI requestURI = uriComponents.toUri();
 
             // use `exchange` method for HTTP call
             ResponseEntity<ProductCatalogResponse> response = restTemplate.exchange(uriComponents.toUri().toURL().toString(), HttpMethod.GET, requestHeaders, ProductCatalogResponse.class);

@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.davidhay.jlassignment.domain.inbound.Product;
 import java.util.List;
+
+import com.davidhay.jlassignment.domain.inbound.ProductType;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +40,7 @@ public class ProductCatalogRepositoryIT {
     String apiKey = environment.getProperty("API_KEY");
     Assert.isTrue(apiKey != null, "The API_KEY must be set via an environmental variable, it's a secret!");
 
-    List<Product> products = repo.getProductsFromCatalog("dresses");
+    List<Product> products = repo.getProductsFromCatalog(ProductType.DRESSES);
     assertTrue(products.size() > 0);
 
   }

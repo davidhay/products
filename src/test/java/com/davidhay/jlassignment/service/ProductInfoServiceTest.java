@@ -1,6 +1,7 @@
 package com.davidhay.jlassignment.service;
 
 import com.davidhay.jlassignment.domain.inbound.Product;
+import com.davidhay.jlassignment.domain.inbound.ProductType;
 import com.davidhay.jlassignment.domain.outbound.ProductInfo;
 import com.davidhay.jlassignment.mapper.ProductToProductInfoMapper;
 import com.davidhay.jlassignment.repository.ProductCatalogRepository;
@@ -14,8 +15,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.UUID;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -41,15 +40,16 @@ public class ProductInfoServiceTest {
     ProductInfo mProductInfo1, mProductInfo2, mProductInfo3;
 
     @Captor
-    ArgumentCaptor<String> argProductName;
+    ArgumentCaptor<ProductType> argProductType;
 
     @Captor
     ArgumentCaptor<Product> argProduct;
 
+
     @Test
     void testGetProductInfo() {
 
-        when(mRepo.getProductsFromCatalog(argProductName.capture())).thenReturn(List.of(mProduct1, mProduct2, mProduct3));
+        when(mRepo.getProductsFromCatalog(argProductType.capture())).thenReturn(List.of(mProduct1, mProduct2, mProduct3));
 
         when(mMapper.mapToProductInfo(argProduct.capture())).thenReturn(mProductInfo1, mProductInfo2, mProductInfo3);
 
@@ -58,25 +58,24 @@ public class ProductInfoServiceTest {
         List<ProductInfo> order = List.of(mProductInfo3, mProductInfo2, mProductInfo1);
         Comparator<ProductInfo> comparator = Comparator.comparingInt(order::indexOf);
 
-        String productName = UUID.randomUUID().toString();
         Consumer<ProductInfo> labeller = (pi) -> {
-                if(pi == mProductInfo1){
-                     pi.setPriceLabel("LABEL-ONE");
-                }else{
-                     pi.setPriceLabel("LABEL-TWO");
-                }
+            if (pi == mProductInfo1) {
+                pi.setPriceLabel("LABEL-ONE");
+            } else {
+                pi.setPriceLabel("LABEL-TWO");
+            }
         };
-        List<ProductInfo> result = sut.getProductInfo(productName, filter, comparator, labeller);
+        List<ProductInfo> result = sut.getProductInfo(ProductType.DRESSES, filter, comparator, labeller);
 
         assertEquals(result, List.of(mProductInfo3, mProductInfo1));
 
         verify(mProductInfo1).setPriceLabel("LABEL-ONE");
         verify(mProductInfo3).setPriceLabel("LABEL-TWO");
 
-        assertEquals(argProductName.getValue(), productName);
+        assertEquals(argProductType.getValue(), ProductType.DRESSES);
 
         assertEquals(argProduct.getAllValues(), List.of(mProduct1, mProduct2, mProduct3));
-        verify(mMapper,times(3)).mapToProductInfo(any(Product.class));
+        verify(mMapper, times(3)).mapToProductInfo(any(Product.class));
 
         verifyNoMoreInteractions(mMapper, mRepo);
     }

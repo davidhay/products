@@ -1,6 +1,7 @@
 package com.davidhay.jlassignment.service;
 
 import com.davidhay.jlassignment.controller.LabelType;
+import com.davidhay.jlassignment.domain.inbound.ProductType;
 import com.davidhay.jlassignment.domain.outbound.ProductInfo;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -44,7 +45,7 @@ public class ReducedPriceDressesServiceTest {
     void checkReducedPriceDressesForLabelType(LabelType type) {
         when(mLabelTypeToProductInfoLabeler.apply(type)).thenReturn(mProductInfoLabeler);
 
-        when(mProductInfoService.getProductInfo(ReducedPriceDressesService.PRODUCT_DRESSES,
+        when(mProductInfoService.getProductInfo(ProductType.DRESSES,
                 mHasPriceReductionPredicate, mSortProductInfoByPriceReductionInPenceDescending, mProductInfoLabeler)).thenReturn(mProductInfoList);
 
         List<ProductInfo> result = sut.getReducedPriceDresses(type);
@@ -52,7 +53,7 @@ public class ReducedPriceDressesServiceTest {
         assertEquals(result, mProductInfoList);
 
         verify(mLabelTypeToProductInfoLabeler).apply(type);
-        verify(mProductInfoService).getProductInfo(ReducedPriceDressesService.PRODUCT_DRESSES,
+        verify(mProductInfoService).getProductInfo(ProductType.DRESSES,
                 mHasPriceReductionPredicate, mSortProductInfoByPriceReductionInPenceDescending, mProductInfoLabeler);
 
         verifyNoMoreInteractions(mProductInfoList,

@@ -36,6 +36,7 @@ public class ConfigProperties {
         log.info("app.baseCatalogURL  is {}", this.baseCatalogURL);
         String first5 = StringUtils.left(apiKey, 5);
         String last5 = StringUtils.right(apiKey, 5);
+        //DO NOT log apiKey to logs!
         log.info("app.apiKey : key : length[{}] : ", apiKey.length());
         log.info("app.apiKey : key : first5[{}] : last5[{}]", first5, last5);
     }

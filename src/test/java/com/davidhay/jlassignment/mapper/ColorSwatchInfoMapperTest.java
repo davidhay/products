@@ -11,7 +11,6 @@ import com.davidhay.jlassignment.lookup.RgbColorLookup;
 import java.util.Optional;
 import java.util.UUID;
 
-import org.checkerframework.checker.nullness.Opt;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;

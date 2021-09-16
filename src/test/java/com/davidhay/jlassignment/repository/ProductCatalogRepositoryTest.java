@@ -12,6 +12,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.UUID;
 
+import com.davidhay.jlassignment.domain.inbound.ProductType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -73,7 +74,7 @@ public class ProductCatalogRepositoryTest {
         argClass.capture())).thenReturn(
         ResponseEntity.ok(response));
 
-    List<Product> result = sut.getProductsFromCatalog("dresses");
+    List<Product> result = sut.getProductsFromCatalog(ProductType.DRESSES);
     assertThat(result).isEqualTo(List.of(mProduct1, mProduct3));
 
     assertThat(argURL.getValue()).isEqualTo(String.format("%s%s%s",FAKE_URL,"?q=dresses&key=",apiKey));
@@ -101,7 +102,7 @@ public class ProductCatalogRepositoryTest {
       temp.thenReturn(ResponseEntity.status(statusCode).build());
     }
 
-    List<Product> result = sut.getProductsFromCatalog("dresses");
+    List<Product> result = sut.getProductsFromCatalog(ProductType.DRESSES);
     assertThat(result).isEmpty();
 
     verify(mRestTemplate).exchange(any(String.class), any(HttpMethod.class), any(HttpEntity.class),

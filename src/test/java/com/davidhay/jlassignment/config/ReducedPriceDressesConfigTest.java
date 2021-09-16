@@ -102,8 +102,7 @@ public class ReducedPriceDressesConfigTest {
         BigDecimal wasM = MoneyUtils.getMoney(was);
         BigDecimal nowM = MoneyUtils.getMoney(now);
         PriceInfo price = new PriceInfo("GBP", wasM, nowM);
-        ProductInfo result = ProductInfo.builder().priceInfo(price).build();
-        return result;
+        return ProductInfo.builder().priceInfo(price).build();
     }
 
 }
